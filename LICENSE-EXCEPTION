@@ -1,0 +1,109 @@
+OpenGitForge Plugin Exception to the GNU Affero General Public License, version 3 ("AGPLv3")
+
+Copyright (C) 2026 OpenGitForge
+
+This exception is an additional permission under section 7 of the
+GNU Affero General Public License, version 3 ("AGPLv3"). It is
+granted by the copyright holder(s) of OpenGitForge and applies to
+the OpenGitForge source code as distributed under the AGPLv3, in
+addition to and without limiting the permissions already granted
+by that license.
+
+1. DEFINITIONS
+
+   "the Program" means the OpenGitForge software as licensed under
+   the AGPLv3, including its source code, and any work based on it
+   as defined by the AGPLv3.
+
+   "Plugin API" means the set of interfaces, protocols, schemas,
+   headers, client libraries, or software development kits that
+   the Program publishes for the specific purpose of allowing
+   independent programs to interoperate with it, as designated by
+   the copyright holder(s) in the Program's official documentation
+   or repository (for example, packages or directories marked as
+   "SDK", "plugin-api", or "public API").
+
+   "Plugin" means an independent and separate work of software
+   that:
+
+     a) is designed to interoperate with the Program solely
+        through the Plugin API;
+
+     b) does not incorporate, copy, modify, or statically link
+        any source code of the Program other than the Plugin API
+        itself; and
+
+     c) communicates with the Program, at runtime, only through
+        the mechanisms the Plugin API defines for that purpose
+        (including but not limited to network calls, inter-process
+        communication, defined extension points, or dynamic loading
+        through a documented plugin interface).
+
+2. GRANT OF ADDITIONAL PERMISSION
+
+   As a special exception to the terms of the AGPLv3, the copyright
+   holder(s) of the Program give you permission to combine the
+   Program with a Plugin, and to convey the resulting combination,
+   without the Plugin being subject to the terms of the AGPLv3,
+   provided that the Plugin meets the definition in Section 1 above.
+
+   You may license such a Plugin under terms of your own choosing,
+   including proprietary or commercial terms, and you may charge a
+   fee for it, regardless of whether the Plugin is distributed
+   together with the Program or separately.
+
+3. SCOPE AND LIMITS
+
+   This exception applies only to the Plugin itself. It does not
+   apply to, and does not remove any AGPLv3 obligation with respect
+   to:
+
+     a) the Program itself, including any modifications you make
+        to its source code;
+
+     b) any component that is merged into, statically linked with,
+        or directly incorporates source code of the Program beyond
+        the Plugin API;
+
+     c) any component that must be distributed as a single combined
+        work with the Program in a way that does not meet the
+        "independent and separate work" test in Section 1; or
+
+     d) your obligations under Section 13 of the AGPLv3 (the network
+        interaction / source-offer requirement) with respect to the
+        Program itself, which continue to apply in full to any
+        modified version of the Program that you make available to
+        users over a network, whether or not it is combined with
+        one or more Plugins under this exception.
+
+   If there is any doubt as to whether a given piece of software
+   qualifies as a Plugin under Section 1, it is not covered by this
+   exception, and the ordinary terms of the AGPLv3 apply to it.
+
+4. NO OTHER CHANGES
+
+   Except as expressly stated in this file, all other terms of the
+   AGPLv3 remain unchanged and in full force. This exception does
+   not grant any permission to remove, alter, or obscure copyright,
+   license, or attribution notices required elsewhere by the
+   Program's licensing (including any NOTICE file distributed with
+   the Program).
+
+5. HOW TO APPLY THIS EXCEPTION
+
+   This file applies automatically to the copy of OpenGitForge it is
+   distributed with. Anyone redistributing modified versions of the
+   Program must preserve this file, unmodified, alongside the
+   AGPLv3 LICENSE file, for the exception to continue to apply to
+   downstream recipients.
+
+-----
+
+This text is modeled on the structure of the GNU Classpath
+Exception and similar linking exceptions used by other AGPL/GPL
+projects, adapted for a plugin/extension architecture rather than
+library linking. It has not been reviewed by a lawyer. Before
+relying on it — especially before selling or licensing plugins
+commercially, or enforcing it against a third party — have it
+reviewed by counsel familiar with open-source licensing in your
+jurisdiction.
