@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.20"/>
+        <PackageReference Include="Scalar.AspNetCore" Version="2.17.10"/>
+        <PackageReference Include="Tomlyn.Extensions.Configuration" Version="2.0.1"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="config/**">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Modules\OGF.Module.Authentication\OGF.Module.Authentication.csproj" Private="true" />
+      <ProjectReference Include="..\OFG.Host.Module\OFG.Host.Module.csproj" />
+    </ItemGroup>
+
+</Project>

@@ -1,2 +1,9 @@
 <Solution>
+    <Project Path="backend/OGF.Host/OGF.Host.csproj" />
+    <Project Path="backend/OFG.Host.Module/OFG.Host.Module.csproj" />
+    <Folder Name="/Modules/">
+        <Project Path="backend\Modules\OGF.Module.Authentication.Contracts\OGF.Module.Authentication.Contracts.csproj" />
+        <Project Path="backend\Modules\OGF.Module.Authentication.EP\OGF.Module.Authentication.EP.csproj" />
+        <Project Path="backend\Modules\OGF.Module.Authentication\OGF.Module.Authentication.csproj" />
+    </Folder>
 </Solution>

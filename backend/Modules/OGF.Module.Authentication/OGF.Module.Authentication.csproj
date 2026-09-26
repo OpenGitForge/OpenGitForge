@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\OFG.Host.Module\OFG.Host.Module.csproj" />
+      <ProjectReference Include="..\OGF.Module.Authentication.Contracts\OGF.Module.Authentication.Contracts.csproj" />
+      <ProjectReference Include="..\OGF.Module.Authentication.EP\OGF.Module.Authentication.EP.csproj" />
+    </ItemGroup>
+
+</Project>
