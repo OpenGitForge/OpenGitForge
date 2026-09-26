@@ -1,0 +1,35 @@
+networks:
+  forge:
+    driver: bridge
+
+volumes:
+  git-data:
+
+services:
+  haproxy:
+    build:
+      context: ./docker/haproxy
+    ports:
+      - "80:80"
+      - "443:443"
+      - "2222:2222"
+    depends_on:
+      - gitserver
+    networks:
+      - forge
+
+  gitserver:
+    build:
+      context: ./docker/gitserver
+    environment:
+      # In dev the API runs natively on the host; in prod this is overridden
+      # to point at the `api` container instead (see docker-compose.prod.yml).
+      AUTH_API_URL: "http://host.docker.internal:5000"
+    extra_hosts:
+      # Lets the container resolve host.docker.internal on Linux.
+      # Docker Desktop (macOS/Windows) provides this mapping automatically.
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - git-data:/var/lib/git
+    networks:
+      - forge

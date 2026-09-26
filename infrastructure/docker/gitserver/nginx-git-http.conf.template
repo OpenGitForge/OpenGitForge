@@ -1,0 +1,28 @@
+server {
+    listen 8080;
+    server_name _;
+
+    # Internal-only auth check: nginx holds the request until the Auth API
+    # returns 2xx (allow) or 401/403 (deny). Requires nginx's auth_request
+    # module — bundled in Debian's nginx-light; confirm for whatever base
+    # image you end up on.
+    location = /_auth {
+        internal;
+        proxy_pass ${AUTH_API_URL}/internal/git-http-auth;
+        proxy_pass_request_body off;
+        proxy_set_header Content-Length "";
+        proxy_set_header X-Original-URI $request_uri;
+        proxy_set_header X-Original-Method $request_method;
+    }
+
+    location ~ ^/.*\.git(/.*)?$ {
+        auth_request /_auth;
+
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME /usr/lib/git-core/git-http-backend;
+        fastcgi_param GIT_HTTP_EXPORT_ALL "";
+        fastcgi_param GIT_PROJECT_ROOT /var/lib/git/repositories;
+        fastcgi_param PATH_INFO $uri;
+        fastcgi_pass unix:/run/fcgiwrap.socket;
+    }
+}

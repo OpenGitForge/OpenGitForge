@@ -1,0 +1,11 @@
+# Automatically merged by `docker compose up` whenever no `-f` flags are
+# passed — this is what makes dev "just work" while keeping the base file
+# production-shaped. It is NOT loaded when you explicitly pass -f files
+# (e.g. the prod invocation in docker-compose.prod.yml), so none of this
+# ever leaks into a prod run by accident.
+
+services:
+  gitserver:
+    ports:
+      - "2223:22" 
+      - "8081:8080" 

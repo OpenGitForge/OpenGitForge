@@ -1,0 +1,15 @@
+Port 22
+PermitRootLogin no
+PasswordAuthentication no
+PubkeyAuthentication yes
+AllowUsers git
+
+# Every connection authenticates as the single `git` OS user; sshd calls out
+# to the Auth API (via this script) for each offered key to find out whether
+# it's valid and, if so, what restricted command it's allowed to run.
+AuthorizedKeysCommand /usr/local/bin/authorized-keys-command.sh %u %t %k
+AuthorizedKeysCommandUser nobody
+
+# We're not using a static authorized_keys file at all — everything is
+# resolved dynamically through the command above.
+AuthorizedKeysFile /dev/null
