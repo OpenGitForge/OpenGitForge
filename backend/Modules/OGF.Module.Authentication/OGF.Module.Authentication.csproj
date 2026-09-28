@@ -7,9 +7,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\OFG.Host.Module\OFG.Host.Module.csproj" />
-      <ProjectReference Include="..\OGF.Module.Authentication.Contracts\OGF.Module.Authentication.Contracts.csproj" />
-      <ProjectReference Include="..\OGF.Module.Authentication.EP\OGF.Module.Authentication.EP.csproj" />
+        <ProjectReference Include="..\..\OFG.Host.Module\OFG.Host.Module.csproj"/>
+        <ProjectReference Include="..\OGF.Module.Authentication.Contracts\OGF.Module.Authentication.Contracts.csproj"/>
+        <ProjectReference Include="..\OGF.Module.Authentication.Plugin\OGF.Module.Authentication.Plugin.csproj"/>
+        <ProjectReference Include="..\OGF.Module.Authentication.Plugin.Default\OGF.Module.Authentication.Plugin.Default.csproj" Private="true"/>
     </ItemGroup>
 
 

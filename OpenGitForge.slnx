@@ -1,9 +1,14 @@
 <Solution>
-    <Project Path="backend/OGF.Host/OGF.Host.csproj" />
-    <Project Path="backend/OFG.Host.Module/OFG.Host.Module.csproj" />
-    <Folder Name="/Modules/">
-        <Project Path="backend\Modules\OGF.Module.Authentication.Contracts\OGF.Module.Authentication.Contracts.csproj" />
-        <Project Path="backend\Modules\OGF.Module.Authentication.EP\OGF.Module.Authentication.EP.csproj" />
-        <Project Path="backend\Modules\OGF.Module.Authentication\OGF.Module.Authentication.csproj" />
+    <Folder Name="/backend/">
+        <Project Path="backend/OGF.Host/OGF.Host.csproj"/>
+        <Project Path="backend/OFG.Host.Module/OFG.Host.Module.csproj"/>
+    </Folder>
+    <Folder Name="/backend/Modules/">
+        <Project
+                Path="backend\Modules\OGF.Module.Authentication.Contracts\OGF.Module.Authentication.Contracts.csproj"/>
+        <Project Path="backend\Modules\OGF.Module.Authentication.Plugin\OGF.Module.Authentication.Plugin.csproj"/>
+        <Project Path="backend\Modules\OGF.Module.Authentication\OGF.Module.Authentication.csproj"/>
+        <Project
+                Path="backend\Modules\OGF.Module.Authentication.Plugin.Default/OGF.Module.Authentication.Plugin.Default.csproj"/>
     </Folder>
 </Solution>

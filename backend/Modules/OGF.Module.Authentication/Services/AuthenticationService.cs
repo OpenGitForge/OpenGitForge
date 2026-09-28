@@ -1,16 +1,16 @@
 using OFG.Host.Module;
 using OGF.Authentication.Contracts;
-using OGF.Module.Authentication.EP;
+using OGF.Module.Authentication.Plugin;
 
 namespace OGF.Module.Authentication.Services;
 
 [Injectable(typeof(IAuthenticationService))]
 public sealed class AuthenticationService : IAuthenticationService
 {
-    private readonly IAuthStrategy _authStrategy;
+    private readonly IAccountAuthStrategy _accountAuthStrategy;
 
-    public AuthenticationService(IAuthStrategy authStrategy)
+    public AuthenticationService(IAccountAuthStrategy accountAuthStrategy)
     {
-        _authStrategy = authStrategy;
+        _accountAuthStrategy = accountAuthStrategy;
     }
 }

@@ -13,6 +13,11 @@ public sealed class Module : IModule
 
     public void LoadDependencies(ModuleLoader loader)
     {
-        
+        AuthenticationOptions options = loader.LoadOptions<AuthenticationOptions>();
+
+        foreach (string plugin in options.Plugins)
+        {
+            loader.LoadPlugin(plugin);
+        }
     }
 }

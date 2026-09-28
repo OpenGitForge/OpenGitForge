@@ -1,1 +1,5 @@
-[Module.Authentication]
+[Modules.Authentication]
+
+Plugins = [
+    "OGF.Module.Authentication.Plugin.Default.dll"
+]

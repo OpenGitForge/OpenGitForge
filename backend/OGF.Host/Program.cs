@@ -20,8 +20,15 @@ public static class Program
         
         foreach (Assembly module in loader.Modules)
         {
-            builder.Services.AddMvc().AddApplicationPart(module).AddControllersAsServices();
+            builder.Services
+                .AddMvc()
+                .AddApplicationPart(module)
+                .AddControllersAsServices();
             DiRegistry.RegisterServices(module);   
+        }
+        foreach (Assembly plugin in loader.Plugins)
+        {
+            DiRegistry.RegisterServices(plugin);
         }
         
         DiRegistry.BindServices(builder.Services);
