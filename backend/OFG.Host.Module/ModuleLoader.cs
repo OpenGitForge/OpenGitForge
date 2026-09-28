@@ -7,12 +7,16 @@ namespace OFG.Host.Module;
 
 public sealed class ModuleLoader
 {
+    private readonly List<Assembly> _modules;
     private readonly HashSet<string> _loadedAssemblies;
     private readonly IServiceCollection _service;
     private readonly IConfiguration _configuration;
 
+    public IReadOnlyList<Assembly> Modules => _modules;
+
     public ModuleLoader(IServiceCollection service, IConfiguration configuration)
     {
+        _modules = new List<Assembly>();
         _loadedAssemblies = new HashSet<string>();
         _service = service;
         _configuration = configuration;
@@ -25,6 +29,7 @@ public sealed class ModuleLoader
         Assembly assembly = Assembly.LoadFile(path);
         if (_loadedAssemblies.Add(assembly.Location))
         {
+            _modules.Add(assembly);
             LoadModule(assembly);
         }
     }

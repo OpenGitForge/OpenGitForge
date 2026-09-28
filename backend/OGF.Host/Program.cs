@@ -1,3 +1,4 @@
+using System.Reflection;
 using Microsoft.Extensions.Options;
 using OFG.Host.Module;
 using Scalar.AspNetCore;
@@ -12,10 +13,18 @@ public static class Program
         WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
         LoadConfigurationFiles(builder);
-        LoadModules(builder);
+        ModuleLoader loader = LoadModules(builder);
 
         builder.Services.AddControllers();
         builder.Services.AddOpenApi();
+        
+        foreach (Assembly module in loader.Modules)
+        {
+            builder.Services.AddMvc().AddApplicationPart(module).AddControllersAsServices();
+            DiRegistry.RegisterServices(module);   
+        }
+        
+        DiRegistry.BindServices(builder.Services);
 
         WebApplication app = builder.Build();
 
@@ -51,7 +60,7 @@ public static class Program
             .ValidateOnStart();
     }
 
-    private static void LoadModules(WebApplicationBuilder builder)
+    private static ModuleLoader LoadModules(WebApplicationBuilder builder)
     {
         IServiceProvider provider = builder.Services.BuildServiceProvider();
         IOptions<HostOptions> options = provider.GetRequiredService<IOptions<HostOptions>>();
@@ -61,5 +70,7 @@ public static class Program
         {
             loader.LoadModule(module);
         }
+
+        return loader;
     }
 }

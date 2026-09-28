@@ -5,11 +5,11 @@ using OGF.Module.Authentication.EP;
 namespace OGF.Module.Authentication.Services;
 
 [Injectable(typeof(IAuthenticationService))]
-public sealed class AuthenticateService : IAuthenticationService
+public sealed class AuthenticationService : IAuthenticationService
 {
     private readonly IAuthStrategy _authStrategy;
 
-    public AuthenticateService(IAuthStrategy authStrategy)
+    public AuthenticationService(IAuthStrategy authStrategy)
     {
         _authStrategy = authStrategy;
     }
