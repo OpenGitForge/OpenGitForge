@@ -55,7 +55,7 @@ public static class Program
     {
         IServiceProvider provider = builder.Services.BuildServiceProvider();
         IOptions<HostOptions> options = provider.GetRequiredService<IOptions<HostOptions>>();
-        ModuleLoader loader = new ModuleLoader(builder.Configuration);
+        ModuleLoader loader = new ModuleLoader(builder.Services, builder.Configuration);
 
         foreach (string module in options.Value.Modules)
         {
